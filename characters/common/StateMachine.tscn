@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://pd4voinxarip"]
+
+[ext_resource type="Script" path="res://characters/common/StateMachine.gd" id="1_r5fqo"]
+[ext_resource type="Script" path="res://characters/common/DefaultState.gd" id="2_10yka"]
+
+[node name="StateMachine" type="Node"]
+script = ExtResource("1_r5fqo")
+initial_state = NodePath("DefaultState")
+
+[node name="DefaultState" type="Node" parent="."]
+script = ExtResource("2_10yka")
