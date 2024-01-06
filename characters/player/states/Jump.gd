@@ -1,7 +1,7 @@
 extends PlayerState
 
-const JUMP_SPEED = -1200.0
-const MAX_AIR_SPEED = -800
+const JUMP_SPEED = -800.0
+const MAX_AIR_SPEED = -600
 const PEEK_AIR_SPEED = -400
 const JUMP_GRAVITY = 500
 const AIR_CONTROL = 300.0
@@ -24,3 +24,6 @@ func handle_input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_released("jump"):
 		state_machine.transition_to("Air")
+
+	if event.is_action_pressed("dash"):
+		state_machine.transition_to("Dash")

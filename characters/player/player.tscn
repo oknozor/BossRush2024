@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq75cdj7imt7r"]
+[gd_scene load_steps=19 format=3 uid="uid://bq75cdj7imt7r"]
 
 [ext_resource type="PackedScene" uid="uid://chu2hkovkyvp3" path="res://characters/common/character.tscn" id="1_unlq0"]
 [ext_resource type="Script" path="res://characters/player/Player.gd" id="2_5rg5b"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://characters/player/states/Run.gd" id="3_7mj8i"]
 [ext_resource type="Script" path="res://characters/player/states/Jump.gd" id="4_bu88t"]
 [ext_resource type="Script" path="res://characters/player/states/Air.gd" id="5_a2nxy"]
+[ext_resource type="Script" path="res://characters/player/states/Dash.gd" id="7_mmwfs"]
 [ext_resource type="Script" path="res://characters/player/Gun.gd" id="7_qvet7"]
 [ext_resource type="Texture2D" uid="uid://ctf2riubxrivg" path="res://icon.svg" id="8_ji2gb"]
 [ext_resource type="PackedScene" uid="uid://cbov042sts18j" path="res://hazards/projectile/NormalBullet.tscn" id="9_0eei3"]
@@ -13,8 +14,10 @@
 [ext_resource type="Script" path="res://characters/player/GunWheel.gd" id="10_hc284"]
 [ext_resource type="PackedScene" uid="uid://sjhn1n03y3gy" path="res://hazards/projectile/WaterBullet.tscn" id="10_wncij"]
 [ext_resource type="PackedScene" uid="uid://bqg3wg5e4s11l" path="res://hazards/projectile/AirBullet.tscn" id="11_jg7xm"]
+[ext_resource type="Texture2D" uid="uid://dupau3jg8i08o" path="res://characters/player/player.png" id="14_wleih"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g3psh"]
+height = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhlko"]
 size = Vector2(133.333, 133.334)
@@ -29,7 +32,7 @@ script = ExtResource("2_5rg5b")
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CapsuleShape2D_g3psh")
 
-[node name="StateMachine" parent="." index="4"]
+[node name="StateMachine" parent="." index="3"]
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" index="1"]
@@ -44,10 +47,17 @@ script = ExtResource("4_bu88t")
 [node name="Air" type="Node" parent="StateMachine" index="4"]
 script = ExtResource("5_a2nxy")
 
-[node name="Camera2D" type="Camera2D" parent="." index="5"]
-zoom = Vector2(1.5, 1.5)
+[node name="Dash" type="Node" parent="StateMachine" index="5"]
+script = ExtResource("7_mmwfs")
 
-[node name="Gun" type="Sprite2D" parent="." index="6"]
+[node name="Timer" type="Timer" parent="StateMachine/Dash" index="0"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+zoom = Vector2(4, 4)
+
+[node name="Gun" type="Sprite2D" parent="." index="5"]
 position = Vector2(1.90735e-06, 0)
 scale = Vector2(0.0625, 0.0625)
 texture = ExtResource("8_ji2gb")
@@ -61,7 +71,7 @@ NormalBullet = ExtResource("9_0eei3")
 [node name="Muzzle" type="Marker2D" parent="Gun" index="0"]
 position = Vector2(304, 0)
 
-[node name="GunWheel" type="Control" parent="." index="7"]
+[node name="GunWheel" type="Control" parent="." index="6"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -93.0
@@ -144,3 +154,25 @@ offset = Vector2(323.368, 0)
 position = Vector2(96, 0)
 scale = Vector2(0.296875, 0.296875)
 shape = SubResource("RectangleShape2D_tliqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="7"]
+texture_filter = 1
+texture = ExtResource("14_wleih")
+hframes = 4
+vframes = 4
+frame = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"op_exp": true,
+"player": "AnimationPlayer",
+"set_vis_track": true,
+"source": "res://characters/player/assets/player.aseprite"
+}
+
+[connection signal="timeout" from="StateMachine/Dash/Timer" to="StateMachine/Dash" method="_on_timer_timeout"]

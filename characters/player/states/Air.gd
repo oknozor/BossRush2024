@@ -15,3 +15,10 @@ func physics_update(delta: float) -> void:
 		player.apply_gravity(delta)
 		
 	player.velocity.x = lerp(player.velocity.x, player.get_direction_strenght() * AIR_CONTROL, 0.3)
+
+func handle_input(event: InputEvent) -> void:
+	if player.input_paused:
+		return
+		
+	if event.is_action_pressed("dash"):
+		state_machine.transition_to("Dash")
