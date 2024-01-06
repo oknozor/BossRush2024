@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://dv43shof5e6q6"
+path="res://.godot/imported/cart-proto-1.aseprite-f09277497d147bcef30fee844074697a.res"
+
+[deps]
+
+source_file="res://cardboard/assets/cart-proto-1.aseprite"
+dest_files=["res://.godot/imported/cart-proto-1.aseprite-f09277497d147bcef30fee844074697a.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false
