@@ -2,7 +2,7 @@ extends PlayerState
 
 const JUMP_SPEED = -700.0
 const MAX_AIR_SPEED = -530
-const PEEK_AIR_SPEED = -300
+const PEEK_AIR_SPEED = -280
 const JUMP_GRAVITY = 600
 const AIR_CONTROL = 150.0
 
@@ -15,10 +15,10 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Air")
 		
 	if player.velocity.y < PEEK_AIR_SPEED:
-		player.velocity.y = lerp(player.velocity.y, JUMP_SPEED, 0.2)
+		player.velocity.y = lerp(player.velocity.y, JUMP_SPEED, 0.3)
 		player.velocity.y += JUMP_GRAVITY * delta
 	else:
-		player.velocity.y = lerp(player.velocity.y, JUMP_SPEED, 0.3)
+		player.velocity.y = lerp(player.velocity.y, JUMP_SPEED, 0.15)
 		player.apply_gravity(delta)
 			
 
