@@ -1,7 +1,6 @@
 class_name Player 
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -400.0
 const GRAVITY = 1500
 var input_paused = false
 var previous_horizontal_direction = HorizontalDirection.RIGHT
@@ -47,7 +46,3 @@ func get_direction():
 func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
-
-func set_active_weapon(weapon: Gun.Weapon):
-	gun.active_weapon = weapon
-

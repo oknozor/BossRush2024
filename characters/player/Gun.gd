@@ -1,15 +1,8 @@
 extends Sprite2D
 class_name Gun
 
-@export var FireBullet : PackedScene
-@export var WaterBullet : PackedScene
-@export var AirBullet : PackedScene
-@export var NormalBullet : PackedScene
-
+@export var Bullet : PackedScene
 @onready var player: Player = get_parent()
-
-enum Weapon {Water, Fire, Air, Normal}
-var active_weapon = Weapon.Normal
 
 func _process(delta):
 	if player.input_paused:
@@ -23,16 +16,6 @@ func _process(delta):
 		shoot()
 
 func shoot():
-	var b
-	match active_weapon:
-		Weapon.Normal: 
-			b = NormalBullet.instantiate()
-		Weapon.Fire:
-			b = FireBullet.instantiate()
-		Weapon.Water:
-			b = WaterBullet.instantiate()
-		Weapon.Air:
-			b = AirBullet.instantiate()
-	
-	owner.owner.add_child(b)
-	b.transform = $Muzzle.global_transform
+	var bullet = Bullet.instantiate()
+	owner.owner.add_child(bullet)
+	bullet.transform = $Muzzle.global_transform

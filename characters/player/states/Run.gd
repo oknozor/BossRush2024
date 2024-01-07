@@ -1,6 +1,6 @@
 extends PlayerState
 
-var max_speed = 350.0
+var max_speed = 200.0
 var max_acceleration = 0.4
 
 func enter(_msg := {}): 
@@ -9,6 +9,9 @@ func enter(_msg := {}):
 func handle_input(event: InputEvent) -> void:
 	if player.input_paused:
 		return
+	
+	if !player.is_on_floor(): 
+		state_machine.transition_to("Air")
 	
 	if event.is_action_pressed("jump"): 
 		state_machine.transition_to("Jump")

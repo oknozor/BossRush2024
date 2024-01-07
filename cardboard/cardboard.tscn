@@ -32,7 +32,6 @@ position = Vector2(0, -8)
 
 [node name="Sprite2D2" type="Sprite2D" parent="PlayerHand"]
 position = Vector2(-312, 249)
-scale = Vector2(1, 1)
 texture = ExtResource("1_ngvxc")
 script = ExtResource("3_ncf88")
 
@@ -41,12 +40,10 @@ script = SubResource("GDScript_wwi6v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHand/Sprite2D2/Area2D"]
 position = Vector2(0, -1.00002)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_b3cpr")
 
 [node name="Sprite2D3" type="Sprite2D" parent="PlayerHand"]
 position = Vector2(-24, 248)
-scale = Vector2(1, 1)
 texture = ExtResource("1_ngvxc")
 script = ExtResource("3_ncf88")
 
@@ -56,13 +53,11 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHand/Sprite2D3/Area2D"]
 position = Vector2(0, -1.00002)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_b3cpr")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="PlayerHand"]
 position = Vector2(272, 248)
-scale = Vector2(1, 1)
 texture = ExtResource("1_ngvxc")
 script = ExtResource("3_ncf88")
 
@@ -72,7 +67,6 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHand/Sprite2D4/Area2D"]
 position = Vector2(0, -1.00002)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_b3cpr")
 metadata/_edit_lock_ = true
 

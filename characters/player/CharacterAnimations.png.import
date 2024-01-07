@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xyxwfn51pqex"
-path="res://.godot/imported/debugtiles.png-8c009ad214733685e100c41656ca3ac5.ctex"
+uid="uid://dvi80svn3s0y2"
+path="res://.godot/imported/CharacterAnimations.png-08121543d5126db661579cafdc25092d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/assets/debugtiles.png"
-dest_files=["res://.godot/imported/debugtiles.png-8c009ad214733685e100c41656ca3ac5.ctex"]
+source_file="res://characters/player/CharacterAnimations.png"
+dest_files=["res://.godot/imported/CharacterAnimations.png-08121543d5126db661579cafdc25092d.ctex"]
 
 [params]
 

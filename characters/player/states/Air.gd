@@ -1,9 +1,12 @@
 extends PlayerState
 
-const AIR_CONTROL = 300.0
+const AIR_CONTROL = 150.0
 const AUGMENTED_GRAVITY = 3000.0
 
 func physics_update(delta: float) -> void:
+	if player.velocity.y > 0:
+		player.animation.play("Fall")
+		
 	if player.is_on_floor():
 		if player.get_direction_strenght() == 0.0:
 			state_machine.transition_to("Idle")

@@ -3,7 +3,7 @@ extends PlayerState
 func enter(msg := {}):
 	player.velocity = Vector2.ZERO
 	player.animation.stop()
-	player.animation.play("idle")
+	player.animation.play("Idle")
 	
 func handle_input(event: InputEvent) -> void:
 	if player.input_paused:
@@ -18,4 +18,4 @@ func handle_input(event: InputEvent) -> void:
 
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
-		player.apply_gravity(delta)
+		state_machine.transition_to("Air")

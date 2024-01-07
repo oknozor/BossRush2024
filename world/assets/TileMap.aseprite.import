@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://bako00nv2616w"
+path="res://.godot/imported/TileMap.aseprite-299ad7c852be25ded3c8592e9d9a9a1f.res"
+
+[deps]
+
+source_file="res://world/assets/TileMap.aseprite"
+dest_files=["res://.godot/imported/TileMap.aseprite-299ad7c852be25ded3c8592e9d9a9a1f.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false
