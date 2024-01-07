@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.1.2](https://github.com/oknozor/BossRush2024/compare/v0.1.1..v0.1.2) - 2024-01-07
+#### Bug Fixes
+- add libresprite to ubuntu runner - ([931a05d](https://github.com/oknozor/BossRush2024/commit/931a05db3521ea8dcaa567c44ce4fd52a12cec78)) - [@oknozor](https://github.com/oknozor)
+
+- - -
+
 ## [v0.1.1](https://github.com/oknozor/BossRush2024/compare/v0.1.0..v0.1.1) - 2024-01-07
 #### Bug Fixes
 - add export preset - ([654c127](https://github.com/oknozor/BossRush2024/commit/654c1276c2b0e097b261eb20ee3e0c6c3ffdc4ac)) - [@oknozor](https://github.com/oknozor)
