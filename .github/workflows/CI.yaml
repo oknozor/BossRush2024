@@ -12,12 +12,6 @@ jobs:
     - name: checkout
       uses: actions/checkout@v4
   
-    - name: Get LibreSprite
-      run: |
-        wget https://github.com/LibreSprite/LibreSprite/releases/download/v1.0/libresprite-Linux--x86_64.AppImage
-        chmod +x libresprite-Linux--x86_64.AppImage
-        sudo mv libresprite-Linux--x86_64.AppImage /usr/bin/aseprite
-
     - name: export game
       id: export
       uses: firebelley/godot-export@v5.2.0
