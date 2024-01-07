@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.1.3](https://github.com/oknozor/BossRush2024/compare/v0.1.2..v0.1.3) - 2024-01-07
+#### Bug Fixes
+- fix libresprite permission - ([0a1604e](https://github.com/oknozor/BossRush2024/commit/0a1604e5fd914ccb287472e819a40eeb7176b894)) - [@oknozor](https://github.com/oknozor)
+
+- - -
+
 ## [v0.1.2](https://github.com/oknozor/BossRush2024/compare/v0.1.1..v0.1.2) - 2024-01-07
 #### Bug Fixes
 - add libresprite to ubuntu runner - ([931a05d](https://github.com/oknozor/BossRush2024/commit/931a05db3521ea8dcaa567c44ce4fd52a12cec78)) - [@oknozor](https://github.com/oknozor)
