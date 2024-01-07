@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.1.4](https://github.com/oknozor/BossRush2024/compare/v0.1.3..v0.1.4) - 2024-01-07
+#### Bug Fixes
+- disable aseprite wizard for build - ([c6fedc9](https://github.com/oknozor/BossRush2024/commit/c6fedc9ee424439c480de1a5a817b17f6a9da6a9)) - [@oknozor](https://github.com/oknozor)
+#### Revert
+- remove libresprite download - ([bfc4853](https://github.com/oknozor/BossRush2024/commit/bfc48534f059ff61b36474c62df61d29dcf1bd89)) - [@oknozor](https://github.com/oknozor)
+
+- - -
+
 ## [v0.1.3](https://github.com/oknozor/BossRush2024/compare/v0.1.2..v0.1.3) - 2024-01-07
 #### Bug Fixes
 - fix libresprite permission - ([0a1604e](https://github.com/oknozor/BossRush2024/commit/0a1604e5fd914ccb287472e819a40eeb7176b894)) - [@oknozor](https://github.com/oknozor)
