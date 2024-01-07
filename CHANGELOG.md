@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.1.1](https://github.com/oknozor/BossRush2024/compare/v0.1.0..v0.1.1) - 2024-01-07
+#### Bug Fixes
+- add export preset - ([654c127](https://github.com/oknozor/BossRush2024/commit/654c1276c2b0e097b261eb20ee3e0c6c3ffdc4ac)) - [@oknozor](https://github.com/oknozor)
+
+- - -
+
 ## [v0.1.0](https://github.com/oknozor/BossRush2024/compare/d4f83b2f294b1ec0e359479af01eea61de54258c..v0.1.0) - 2024-01-07
 #### Features
 - add export action - ([ff9c19f](https://github.com/oknozor/BossRush2024/commit/ff9c19f5004f54407a898f91f59bacfc36db7542)) - [@oknozor](https://github.com/oknozor)
