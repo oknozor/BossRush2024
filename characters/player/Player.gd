@@ -9,7 +9,9 @@ enum HorizontalDirection { LEFT, RIGHT }
 @onready var gun: Gun = $Gun
 @onready var animation: AnimationPlayer = $AnimationPlayer 
 @onready var sprite: Sprite2D = $Sprite2D
- 
+@onready var coyote_timer = $Timers/Coyote
+@onready var jump_buffer_timer = $Timers/JumpBuffer
+
 func _process(delta):
 	var direction = get_direction()
 	match previous_horizontal_direction: 

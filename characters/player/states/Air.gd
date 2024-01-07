@@ -3,6 +3,10 @@ extends PlayerState
 const AIR_CONTROL = 150.0
 const AUGMENTED_GRAVITY = 3000.0
 
+func enter(msg := {}):
+	if msg.has("from_ground"):
+		player.coyote_timer.start()
+		
 func physics_update(delta: float) -> void:
 	if player.velocity.y > 0:
 		player.animation.play("Fall")
@@ -22,6 +26,7 @@ func physics_update(delta: float) -> void:
 func handle_input(event: InputEvent) -> void:
 	if player.input_paused:
 		return
-		
+	if event.is_action_pressed("jump") and not player.coyote_timer.is_stopped():
+			state_machine.transition_to("Jump")
 	if event.is_action_pressed("dash"):
 		state_machine.transition_to("Dash")

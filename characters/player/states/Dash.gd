@@ -1,8 +1,6 @@
 extends PlayerState
 
 const DASH_SPEED = 600
-
-@onready var timer = $Timer
 var start_position
 
 func enter(msg := {}):

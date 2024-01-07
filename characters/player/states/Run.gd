@@ -10,9 +10,6 @@ func handle_input(event: InputEvent) -> void:
 	if player.input_paused:
 		return
 	
-	if !player.is_on_floor(): 
-		state_machine.transition_to("Air")
-	
 	if event.is_action_pressed("jump"): 
 		state_machine.transition_to("Jump")
 		
@@ -24,6 +21,6 @@ func handle_input(event: InputEvent) -> void:
 
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
-		player.apply_gravity(delta)
-	
+		state_machine.transition_to("Air", { from_ground = true })
+		
 	player.velocity.x = player.get_direction_strenght() * max_speed

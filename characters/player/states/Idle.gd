@@ -13,6 +13,8 @@ func handle_input(event: InputEvent) -> void:
 		state_machine.transition_to("Run")
 	if event.is_action_pressed("jump"): 
 		state_machine.transition_to("Jump")
+	if event.is_action_pressed("crouch"): 
+		state_machine.transition_to("Crouch")
 	if event.is_action_pressed("dash"):
 		state_machine.transition_to("Dash")
 
