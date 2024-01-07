@@ -29,5 +29,5 @@ func handle_input(event: InputEvent) -> void:
 	if Input.is_action_just_released("jump"):
 		state_machine.transition_to("Air")
 
-	if event.is_action_pressed("dash"):
+	if event.is_action_pressed("dash") and player.can_dash():
 		state_machine.transition_to("Dash")

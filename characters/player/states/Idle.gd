@@ -19,5 +19,8 @@ func handle_input(event: InputEvent) -> void:
 		state_machine.transition_to("Dash")
 
 func physics_update(delta: float) -> void:
+	if not player.jump_buffer_timer.is_stopped():
+		state_machine.transition_to("Jump")
+		
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")

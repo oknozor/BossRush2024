@@ -4,6 +4,9 @@ const DASH_SPEED = 600
 var start_position
 
 func enter(msg := {}):
+	if not player.is_on_floor():
+		player.air_dash -= 1
+		
 	start_position = player.global_position
 	player.animation.stop()
 	player.animation.play("Jump")
@@ -19,9 +22,15 @@ func enter(msg := {}):
 
 func physics_update(delta: float) -> void:
 	if player.global_position.distance_to(start_position) > 130 or player.is_on_wall():
-		state_machine.transition_to("Idle")
+		if not player.is_on_floor():
+			state_machine.transition_to("Air")
+		elif player.get_direction_strenght() != 0:
+			state_machine.transition_to("Run")
+		else:
+			state_machine.transition_to("Idle")
 	
 func exit() -> void:
+	player.dash_timer.start()
 	player.sprite.rotation = 0
 	
 func handle_input(event: InputEvent) -> void:

@@ -52,6 +52,12 @@ wait_time = 0.1
 one_shot = true
 
 [node name="JumpBuffer" type="Timer" parent="Timers" index="1"]
+wait_time = 0.1
+one_shot = true
+
+[node name="DashTimer" type="Timer" parent="Timers" index="2"]
+wait_time = 0.4
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 offset = Vector2(0, -50)
