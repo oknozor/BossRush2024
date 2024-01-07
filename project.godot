@@ -26,10 +26,6 @@ movie_writer/mjpeg_quality=0.5
 movie_writer/movie_file="/home/okno/Downloads/export.avi"
 movie_writer/disable_vsync=true
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
-
 [filesystem]
 
 import/blender/enabled=false
