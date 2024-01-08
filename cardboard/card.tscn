@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://d05peg7i70opo"]
+
+[ext_resource type="Texture2D" uid="uid://bwrgd7vq8s1wl" path="res://cardboard/assets/cart-proto-1.png" id="1_m1xmk"]
+[ext_resource type="Script" path="res://cardboard/CardSprite.gd" id="2_143go"]
+[ext_resource type="Texture2D" uid="uid://b72737k8ttsq7" path="res://cardboard/assets/particle.png" id="3_ybr2d"]
+
+[sub_resource type="GDScript" id="GDScript_wwi6v"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3cpr"]
+size = Vector2(160, 240)
+
+[node name="Card" type="Sprite2D"]
+modulate = Color(0.815686, 0.815686, 0.815686, 1)
+position = Vector2(80, 120)
+texture = ExtResource("1_m1xmk")
+script = ExtResource("2_143go")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(0.278431, 0.156863, 0.964706, 1)
+show_behind_parent = true
+emitting = false
+amount = 3075
+lifetime = 0.01
+speed_scale = 0.06
+explosiveness = 0.17
+texture = ExtResource("3_ybr2d")
+emission_shape = 3
+emission_rect_extents = Vector2(50, 100)
+spread = 180.0
+initial_velocity_min = 27.54
+initial_velocity_max = 1000.0
+scale_amount_min = 0.0
+scale_amount_max = 4.24
+hue_variation_min = -0.31
+hue_variation_max = 0.17
+
+[node name="Area2D" type="Area2D" parent="."]
+script = SubResource("GDScript_wwi6v")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_b3cpr")
+metadata/_edit_lock_ = true
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

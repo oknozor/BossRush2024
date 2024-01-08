@@ -1,80 +1,100 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvd6jkowaov3e"]
+[gd_scene load_steps=8 format=3 uid="uid://dvd6jkowaov3e"]
 
 [ext_resource type="Script" path="res://cardboard/cursor.gd" id="1_4htc7"]
-[ext_resource type="Texture2D" uid="uid://bwrgd7vq8s1wl" path="res://cardboard/assets/cart-proto-1.png" id="1_ngvxc"]
-[ext_resource type="Script" path="res://cardboard/CardSprite.gd" id="3_ncf88"]
+[ext_resource type="Texture2D" uid="uid://c6visu4x60b54" path="res://cardboard/assets/cardboard-ph.png" id="2_gueyj"]
+[ext_resource type="Texture2D" uid="uid://4eug3pwocva0" path="res://cardboard/assets/exchange_arrow.png" id="3_bsgme"]
+[ext_resource type="Texture2D" uid="uid://b72737k8ttsq7" path="res://cardboard/assets/particle.png" id="4_ft4d8"]
 
-[sub_resource type="GDScript" id="GDScript_wwi6v"]
-script/source = "extends Area2D
+[sub_resource type="Gradient" id="Gradient_xqclj"]
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yqj76"]
+gradient = SubResource("Gradient_xqclj")
+fill_from = Vector2(0.188034, 0.192308)
+fill_to = Vector2(0.935897, 0.213675)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3cpr"]
-size = Vector2(160, 240)
+[sub_resource type="Environment" id="Environment_x6kc2"]
+background_mode = 3
+ambient_light_energy = 5.97
+glow_enabled = true
+glow_levels/1 = 3.73
+glow_levels/2 = 1.5
+glow_levels/4 = 2.05
+glow_levels/6 = 1.35
+glow_normalized = true
+glow_intensity = 0.4
+glow_strength = 1.95
+glow_bloom = 0.6
+glow_blend_mode = 4
+adjustment_brightness = 1.28
+adjustment_color_correction = SubResource("GradientTexture2D_yqj76")
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, 8)
 script = ExtResource("1_4htc7")
 
+[node name="BG" type="Sprite2D" parent="."]
+modulate = Color(0.615686, 0.545098, 0.960784, 0.533333)
+position = Vector2(0, 0.24079)
+scale = Vector2(20.4808, 20.1571)
+texture = ExtResource("2_gueyj")
+metadata/_edit_lock_ = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -8)
 
-[node name="PlayerHand" type="Node" parent="."]
-
-[node name="Sprite2D2" type="Sprite2D" parent="PlayerHand"]
-position = Vector2(-312, 249)
-texture = ExtResource("1_ngvxc")
-script = ExtResource("3_ncf88")
-
-[node name="Area2D" type="Area2D" parent="PlayerHand/Sprite2D2"]
-script = SubResource("GDScript_wwi6v")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHand/Sprite2D2/Area2D"]
-position = Vector2(0, -1.00002)
-shape = SubResource("RectangleShape2D_b3cpr")
-
-[node name="Sprite2D3" type="Sprite2D" parent="PlayerHand"]
-position = Vector2(-24, 248)
-texture = ExtResource("1_ngvxc")
-script = ExtResource("3_ncf88")
-
-[node name="Area2D" type="Area2D" parent="PlayerHand/Sprite2D3"]
-script = SubResource("GDScript_wwi6v")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHand/Sprite2D3/Area2D"]
-position = Vector2(0, -1.00002)
-shape = SubResource("RectangleShape2D_b3cpr")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D4" type="Sprite2D" parent="PlayerHand"]
-position = Vector2(272, 248)
-texture = ExtResource("1_ngvxc")
-script = ExtResource("3_ncf88")
-
-[node name="Area2D" type="Area2D" parent="PlayerHand/Sprite2D4"]
-script = SubResource("GDScript_wwi6v")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHand/Sprite2D4/Area2D"]
-position = Vector2(0, -1.00002)
-shape = SubResource("RectangleShape2D_b3cpr")
-metadata/_edit_lock_ = true
-
 [node name="BossHand" type="Node" parent="."]
 
-[connection signal="mouse_entered" from="PlayerHand/Sprite2D2/Area2D" to="PlayerHand/Sprite2D2" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerHand/Sprite2D2/Area2D" to="PlayerHand/Sprite2D2" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerHand/Sprite2D3/Area2D" to="PlayerHand/Sprite2D3" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerHand/Sprite2D3/Area2D" to="PlayerHand/Sprite2D3" method="_on_area_2d_mouse_exited"]
-[connection signal="mouse_entered" from="PlayerHand/Sprite2D4/Area2D" to="PlayerHand/Sprite2D4" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="PlayerHand/Sprite2D4/Area2D" to="PlayerHand/Sprite2D4" method="_on_area_2d_mouse_exited"]
+[node name="CardSlot1" type="Marker2D" parent="BossHand"]
+position = Vector2(-256, -256)
+metadata/_edit_lock_ = true
+
+[node name="CardSlot2" type="Marker2D" parent="BossHand"]
+position = Vector2(0, -256)
+metadata/_edit_lock_ = true
+
+[node name="CardSlot3" type="Marker2D" parent="BossHand"]
+position = Vector2(256, -256)
+metadata/_edit_lock_ = true
+
+[node name="PlayerHand" type="Node" parent="."]
+
+[node name="CardSlot1" type="Marker2D" parent="PlayerHand"]
+position = Vector2(-256, 256)
+metadata/_edit_lock_ = true
+
+[node name="CardSlot2" type="Marker2D" parent="PlayerHand"]
+position = Vector2(0, 256)
+metadata/_edit_lock_ = true
+
+[node name="CardSlot3" type="Marker2D" parent="PlayerHand"]
+position = Vector2(256, 256)
+metadata/_edit_lock_ = true
+
+[node name="ExchangeButton" type="Sprite2D" parent="."]
+position = Vector2(464, 304)
+scale = Vector2(2.73248, 2.73248)
+texture = ExtResource("3_bsgme")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="ExchangeButton"]
+modulate = Color(0.898039, 0.396078, 0.670588, 1)
+show_behind_parent = true
+position = Vector2(1.46388, 1.46387)
+scale = Vector2(0.365968, 0.365968)
+emitting = false
+amount = 3075
+lifetime = 0.01
+speed_scale = 0.06
+explosiveness = 0.17
+texture = ExtResource("4_ft4d8")
+emission_shape = 1
+emission_sphere_radius = 40.9
+spread = 180.0
+initial_velocity_min = 27.54
+initial_velocity_max = 1000.0
+scale_amount_min = 0.0
+scale_amount_max = 4.24
+hue_variation_min = -0.31
+hue_variation_max = 0.17
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x6kc2")
