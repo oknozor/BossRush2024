@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyod4y17y07kp"]
+
+[ext_resource type="Script" path="res://CardPair.gd" id="1_ew6t1"]
+[ext_resource type="PackedScene" uid="uid://d05peg7i70opo" path="res://cardboard/card.tscn" id="1_xuoop"]
+
+[sub_resource type="Animation" id="Animation_m4sna"]
+resource_name = "Exchange"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardPair/BossHand/AttackExchangePath/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.013278, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.435274, 1, 0.840894),
+"update": 0,
+"values": [0.0, 0.5, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardPair/PlayerHand/AttackExchangePath/PathFollow2D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0132779, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.435274, 1, 0.840894),
+"update": 0,
+"values": [0.0, 0.5, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_llddj"]
+_data = {
+"Exchange": SubResource("Animation_m4sna")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_x1r12"]
+_data = {
+"points": PackedVector2Array(471.828, 394.914, -471.828, -394.914, -256, 312, -161.998, -102, 161.998, 102, -256, -328)
+}
+point_count = 2
+
+[node name="CardPair" type="Node2D"]
+script = ExtResource("1_ew6t1")
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_llddj")
+}
+
+[node name="BossHand" type="Node2D" parent="."]
+
+[node name="AttackExchangePath" type="Path2D" parent="BossHand"]
+position = Vector2(-512, -8)
+rotation = -3.14159
+scale = Vector2(1.00001, 0.999998)
+curve = SubResource("Curve2D_x1r12")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="BossHand/AttackExchangePath"]
+position = Vector2(-256, 312)
+rotates = false
+
+[node name="Card" parent="BossHand/AttackExchangePath/PathFollow2D" instance=ExtResource("1_xuoop")]
+rotation = 3.14159
+scale = Vector2(1, 1)
+
+[node name="PlayerHand" type="Node2D" parent="."]
+
+[node name="AttackExchangePath" type="Path2D" parent="PlayerHand"]
+position = Vector2(0, 8)
+scale = Vector2(1.00001, 0.999998)
+curve = SubResource("Curve2D_x1r12")
+metadata/_edit_lock_ = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PlayerHand/AttackExchangePath"]
+position = Vector2(-256, 312)
+rotates = false
+metadata/_edit_lock_ = true
+
+[node name="Card" parent="PlayerHand/AttackExchangePath/PathFollow2D" instance=ExtResource("1_xuoop")]
+scale = Vector2(1, 1)

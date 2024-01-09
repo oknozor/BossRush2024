@@ -1,8 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://d05peg7i70opo"]
+[gd_scene load_steps=8 format=3 uid="uid://d05peg7i70opo"]
 
 [ext_resource type="Texture2D" uid="uid://bwrgd7vq8s1wl" path="res://cardboard/assets/cart-proto-1.png" id="1_m1xmk"]
 [ext_resource type="Script" path="res://cardboard/CardSprite.gd" id="2_143go"]
 [ext_resource type="Texture2D" uid="uid://b72737k8ttsq7" path="res://cardboard/assets/particle.png" id="3_ybr2d"]
+
+[sub_resource type="Animation" id="Animation_0fiy3"]
+resource_name = "ScaleUp"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.144491),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 1.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ms5y"]
+_data = {
+"ScaleUp": SubResource("Animation_0fiy3")
+}
 
 [sub_resource type="GDScript" id="GDScript_wwi6v"]
 script/source = "extends Area2D
@@ -23,9 +44,17 @@ size = Vector2(160, 240)
 
 [node name="Card" type="Sprite2D"]
 modulate = Color(0.815686, 0.815686, 0.815686, 1)
-position = Vector2(80, 120)
+scale = Vector2(1.4, 1.4)
 texture = ExtResource("1_m1xmk")
 script = ExtResource("2_143go")
+
+[node name="ExchangeTargetPosition" type="Marker2D" parent="."]
+position = Vector2(192, -320)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0ms5y")
+}
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 modulate = Color(0.278431, 0.156863, 0.964706, 1)

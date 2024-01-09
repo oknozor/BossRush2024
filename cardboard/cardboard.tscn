@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvd6jkowaov3e"]
+[gd_scene load_steps=11 format=3 uid="uid://dvd6jkowaov3e"]
 
 [ext_resource type="Script" path="res://cardboard/cursor.gd" id="1_4htc7"]
 [ext_resource type="Texture2D" uid="uid://c6visu4x60b54" path="res://cardboard/assets/cardboard-ph.png" id="2_gueyj"]
 [ext_resource type="Texture2D" uid="uid://4eug3pwocva0" path="res://cardboard/assets/exchange_arrow.png" id="3_bsgme"]
 [ext_resource type="Texture2D" uid="uid://b72737k8ttsq7" path="res://cardboard/assets/particle.png" id="4_ft4d8"]
+[ext_resource type="Script" path="res://cardboard/ExchangeButton.gd" id="4_jbw3j"]
+[ext_resource type="PackedScene" uid="uid://cyod4y17y07kp" path="res://CardPair.tscn" id="6_ql0ta"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nk1x"]
+radius = 26.441
 
 [sub_resource type="Gradient" id="Gradient_xqclj"]
 
@@ -28,7 +33,7 @@ glow_blend_mode = 4
 adjustment_brightness = 1.28
 adjustment_color_correction = SubResource("GradientTexture2D_yqj76")
 
-[node name="Node2D" type="Node2D"]
+[node name="CardBoard" type="Node2D"]
 position = Vector2(0, 8)
 script = ExtResource("1_4htc7")
 
@@ -41,39 +46,14 @@ metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -8)
-
-[node name="BossHand" type="Node" parent="."]
-
-[node name="CardSlot1" type="Marker2D" parent="BossHand"]
-position = Vector2(-256, -256)
-metadata/_edit_lock_ = true
-
-[node name="CardSlot2" type="Marker2D" parent="BossHand"]
-position = Vector2(0, -256)
-metadata/_edit_lock_ = true
-
-[node name="CardSlot3" type="Marker2D" parent="BossHand"]
-position = Vector2(256, -256)
-metadata/_edit_lock_ = true
-
-[node name="PlayerHand" type="Node" parent="."]
-
-[node name="CardSlot1" type="Marker2D" parent="PlayerHand"]
-position = Vector2(-256, 256)
-metadata/_edit_lock_ = true
-
-[node name="CardSlot2" type="Marker2D" parent="PlayerHand"]
-position = Vector2(0, 256)
-metadata/_edit_lock_ = true
-
-[node name="CardSlot3" type="Marker2D" parent="PlayerHand"]
-position = Vector2(256, 256)
 metadata/_edit_lock_ = true
 
 [node name="ExchangeButton" type="Sprite2D" parent="."]
-position = Vector2(464, 304)
-scale = Vector2(2.73248, 2.73248)
+position = Vector2(824, 416)
+scale = Vector2(2.75, 2.75)
 texture = ExtResource("3_bsgme")
+script = ExtResource("4_jbw3j")
+metadata/_edit_group_ = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="ExchangeButton"]
 modulate = Color(0.898039, 0.396078, 0.670588, 1)
@@ -96,5 +76,32 @@ scale_amount_max = 4.24
 hue_variation_min = -0.31
 hue_variation_max = 0.17
 
+[node name="Area2D" type="Area2D" parent="ExchangeButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExchangeButton/Area2D"]
+position = Vector2(1.0979, 1.0979)
+shape = SubResource("CircleShape2D_2nk1x")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_x6kc2")
+
+[node name="AttackPair" type="Node" parent="."]
+
+[node name="CardPair" parent="AttackPair" instance=ExtResource("6_ql0ta")]
+position = Vector2(-320, 0)
+
+[node name="DefensePair" type="Node" parent="."]
+
+[node name="CardPair" parent="DefensePair" instance=ExtResource("6_ql0ta")]
+position = Vector2(256, 0)
+pair_type = 1
+
+[node name="AbilityPair" type="Node" parent="."]
+
+[node name="CardPair" parent="AbilityPair" instance=ExtResource("6_ql0ta")]
+position = Vector2(832, 0)
+pair_type = 2
+
+[connection signal="input_event" from="ExchangeButton/Area2D" to="ExchangeButton" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="ExchangeButton/Area2D" to="ExchangeButton" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ExchangeButton/Area2D" to="ExchangeButton" method="_on_area_2d_mouse_exited"]
