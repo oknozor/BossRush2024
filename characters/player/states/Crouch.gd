@@ -4,7 +4,7 @@ func enter(msg := {}):
 	player.velocity = Vector2.ZERO
 	player.animation.stop()
 	player.animation.play("CrouchIdle")
-	
+
 func handle_input(event: InputEvent) -> void:
 	if player.input_paused:
 		return

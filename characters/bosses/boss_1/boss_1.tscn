@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://dpdck03tsjdy3"]
+
+[ext_resource type="PackedScene" uid="uid://chu2hkovkyvp3" path="res://characters/common/character.tscn" id="1_y2hxc"]
+[ext_resource type="Texture2D" uid="uid://oy02updgruj6" path="res://characters/bosses/boss_1/assets/boss-ph.png" id="2_4xq6w"]
+[ext_resource type="Script" path="res://characters/bosses/boss_1/Boss1.gd" id="2_jlma4"]
+[ext_resource type="Script" path="res://characters/bosses/boss_1/states/JumpAttack.gd" id="4_eew2c"]
+[ext_resource type="Script" path="res://characters/bosses/boss_1/states/SpikeAttack.gd" id="5_espmp"]
+[ext_resource type="Script" path="res://characters/bosses/boss_1/states/ChooseNextAttack.gd" id="5_p140u"]
+[ext_resource type="Script" path="res://characters/bosses/boss_1/states/GrowSpike.gd" id="6_tc2ul"]
+[ext_resource type="Script" path="res://characters/bosses/boss_1/states/Damaged.gd" id="8_afw6j"]
+[ext_resource type="Script" path="res://characters/bosses/boss_1/DamageArea.gd" id="9_a43af"]
+[ext_resource type="Script" path="res://characters/bosses/boss_1/states/Die.gd" id="9_djpim"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o4g5s"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ads5"]
+radius = 32.0
+
+[node name="Boss" instance=ExtResource("1_y2hxc")]
+collision_layer = 2
+collision_mask = 80
+script = ExtResource("2_jlma4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_4xq6w")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_o4g5s")
+
+[node name="Health" parent="." index="3"]
+max_health = 200
+invicibility_duration = 0.1
+
+[node name="StateMachine" parent="." index="4"]
+initial_state = NodePath("ChooseNextAttack")
+
+[node name="JumpAttack" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("4_eew2c")
+
+[node name="SpikeAttack" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("5_espmp")
+
+[node name="Timer" type="Timer" parent="StateMachine/SpikeAttack" index="0"]
+
+[node name="ChooseNextAttack" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("5_p140u")
+
+[node name="Timer" type="Timer" parent="StateMachine/ChooseNextAttack" index="0"]
+one_shot = true
+
+[node name="Damaged" type="Node" parent="StateMachine" index="4"]
+script = ExtResource("8_afw6j")
+
+[node name="Die" type="Node" parent="StateMachine" index="5"]
+script = ExtResource("9_djpim")
+
+[node name="MuzzleL" type="Marker2D" parent="." index="5"]
+position = Vector2(-16, 0)
+
+[node name="MuzzleTL" type="Marker2D" parent="." index="6"]
+position = Vector2(-16, -16)
+
+[node name="MuzzleT" type="Marker2D" parent="." index="7"]
+position = Vector2(0, -16)
+
+[node name="MuzzleTR" type="Marker2D" parent="." index="8"]
+position = Vector2(16, -16)
+
+[node name="MuzzleR" type="Marker2D" parent="." index="9"]
+position = Vector2(16, 0)
+
+[node name="DamageArea" type="Area2D" parent="." index="10"]
+script = ExtResource("9_a43af")
+
+[node name="DamageCollision" type="CollisionShape2D" parent="DamageArea" index="0"]
+shape = SubResource("CircleShape2D_4ads5")
+debug_color = Color(0.917647, 0.227451, 0.435294, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="11"]
+shape = SubResource("CircleShape2D_o4g5s")
+
+[node name="GrowSpike" type="Node" parent="." index="12"]
+script = ExtResource("6_tc2ul")
+
+[node name="Timer" type="Timer" parent="GrowSpike" index="0"]
+
+[connection signal="timeout" from="StateMachine/ChooseNextAttack/Timer" to="StateMachine/ChooseNextAttack" method="_on_timer_timeout"]
+[connection signal="body_entered" from="DamageArea" to="DamageArea" method="_on_body_entered"]

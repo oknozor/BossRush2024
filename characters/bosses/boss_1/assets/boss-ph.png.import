@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1lhb2adcwnrw"
-path="res://.godot/imported/player.png-dcfdb112a00231ebea5f82c8aff8caaa.ctex"
+uid="uid://oy02updgruj6"
+path="res://.godot/imported/boss-ph.png-78dd9bc782ae5dc8ed1b21cd29e304db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/player/assets/player.png"
-dest_files=["res://.godot/imported/player.png-dcfdb112a00231ebea5f82c8aff8caaa.ctex"]
+source_file="res://characters/bosses/boss_1/assets/boss-ph.png"
+dest_files=["res://.godot/imported/boss-ph.png-78dd9bc782ae5dc8ed1b21cd29e304db.ctex"]
 
 [params]
 
@@ -25,7 +25,7 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

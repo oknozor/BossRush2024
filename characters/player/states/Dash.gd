@@ -1,6 +1,7 @@
 extends PlayerState
 
 const DASH_SPEED = 600
+const DASH_DISTANCE = 100
 var start_position
 
 func enter(msg := {}):
@@ -21,7 +22,7 @@ func enter(msg := {}):
 			player.velocity.x = DASH_SPEED
 
 func physics_update(delta: float) -> void:
-	if player.global_position.distance_to(start_position) > 130 or player.is_on_wall():
+	if player.global_position.distance_to(start_position) > DASH_DISTANCE or player.is_on_wall():
 		if not player.is_on_floor():
 			state_machine.transition_to("Air")
 		elif player.get_direction_strenght() != 0:

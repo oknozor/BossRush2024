@@ -1,5 +1,5 @@
 class_name Player 
-extends CharacterBody2D
+extends Character
 
 const GRAVITY = 1500
 var input_paused = false
@@ -16,6 +16,7 @@ var previous_horizontal_direction = HorizontalDirection.RIGHT
 var air_dash = 1
 
 func _process(delta):
+
 	var direction = get_direction()
 	match previous_horizontal_direction: 
 		HorizontalDirection.LEFT:

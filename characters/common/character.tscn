@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://chu2hkovkyvp3"]
+[gd_scene load_steps=27 format=3 uid="uid://chu2hkovkyvp3"]
 
 [ext_resource type="PackedScene" uid="uid://b5hwtic1g1rgy" path="res://characters/common/Health.tscn" id="1_aq6yn"]
 [ext_resource type="Texture2D" uid="uid://dvi80svn3s0y2" path="res://characters/player/CharacterAnimations.png" id="1_lt3l7"]
+[ext_resource type="Script" path="res://characters/common/Character.gd" id="1_u5m42"]
 [ext_resource type="PackedScene" uid="uid://pd4voinxarip" path="res://characters/common/StateMachine.tscn" id="2_y4cfa"]
 
 [sub_resource type="Animation" id="Animation_now6j"]
@@ -1372,6 +1373,7 @@ _data = {
 }
 
 [node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_u5m42")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

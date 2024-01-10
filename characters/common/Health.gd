@@ -1,11 +1,12 @@
 class_name Health
 extends Node
 
-signal health_changed(health, source_body)
+signal healed(health, source_body)
+signal damaged(health, source_body)
 
 @onready var invincibility_timer := $InvicibilityTimer
 @export var max_health = 3
-@export var invicibility_duration = 0.1
+@export var invicibility_duration = 0.4
 
 var health: int
 var status: STATUSES
@@ -20,26 +21,25 @@ func _ready() -> void:
 func take_damage(amount: int, source: Node2D, normal: Vector2):
 	if status == STATUSES.INVICIBLE:
 		return
-	get_parent().fsm.transition_to("Damaged", { source_normal = normal})
+	
+	var state_machine = get_parent().state_machine
+	state_machine.transition_to("Damaged", { source_normal = normal})
 	health -= amount	
 	if health < 0:
-		get_parent().fsm.transition_to("Die")
+		state_machine.transition_to("Die")
 
 	
 	status = STATUSES.INVICIBLE	
 	$InvicibilityTimer.start()
 
-	emit_signal("health_changed", health, source)
+	emit_signal("damaged", health, source)
 
 func heal(amount):
 	health += amount
 	if health > max_health:
 		health = max_health	
-	emit_signal("health_changed", health)
+	emit_signal("healed", health)
 
 func _on_invicibility_timer_timeout():
 	status = STATUSES.NONE
 
-
-func _on_invincibility_tyimer_timeout():
-	pass # Replace with function body.
