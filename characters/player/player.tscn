@@ -1499,14 +1499,13 @@ wait_time = 0.4
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
-offset = Vector2(0, -50)
-zoom = Vector2(2.5, 2.5)
+offset = Vector2(0, -100)
+zoom = Vector2(2.3, 2.3)
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 drag_horizontal_enabled = true
 drag_left_margin = 0.15
 drag_right_margin = 0.15
-metadata/_edit_lock_ = true
 
 [node name="Gun" type="Sprite2D" parent="." index="5"]
 visible = false
@@ -1518,7 +1517,7 @@ bullet_ = ExtResource("10_0qhgg")
 
 [node name="Muzzle" type="Marker2D" parent="Gun" index="0"]
 visible = false
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="6"]
 modulate = Color(0.982878, 0.919941, 0.927808, 1)
@@ -1599,5 +1598,6 @@ collision_mask = 130
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CapsuleShape2D_g3psh")
 debug_color = Color(0.901961, 0.211765, 0.560784, 0.419608)
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="SwordHitBox" to="SwordHitBox" method="_on_body_entered"]
