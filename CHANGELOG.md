@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.2.0](https://github.com/oknozor/BossRush2024/compare/v0.1.4..v0.2.0) - 2024-01-11
+#### Features
+- add many many things - ([713ca51](https://github.com/oknozor/BossRush2024/commit/713ca51f2d573f3134897af4491186b5eef60f3b)) - [@oknozor](https://github.com/oknozor)
+- jump attack factor - ([80813cd](https://github.com/oknozor/BossRush2024/commit/80813cd45839177843980a70f5c39fbe125779bd)) - [@oknozor](https://github.com/oknozor)
+- combat system work still in progress - ([e46df93](https://github.com/oknozor/BossRush2024/commit/e46df93753dca120ffb93d83d773fc518a2a809e)) - [@oknozor](https://github.com/oknozor)
+- add card exchange - ([fdb0b54](https://github.com/oknozor/BossRush2024/commit/fdb0b54f0e4b41e3b37264cd6e26b7b759332496)) - [@oknozor](https://github.com/oknozor)
+- add cardbord particle effect - ([90270aa](https://github.com/oknozor/BossRush2024/commit/90270aa9e7748d258159951718dd3efc923b47fb)) - [@oknozor](https://github.com/oknozor)
+
+- - -
+
 ## [v0.1.4](https://github.com/oknozor/BossRush2024/compare/v0.1.3..v0.1.4) - 2024-01-07
 #### Bug Fixes
 - disable aseprite wizard for build - ([c6fedc9](https://github.com/oknozor/BossRush2024/commit/c6fedc9ee424439c480de1a5a817b17f6a9da6a9)) - [@oknozor](https://github.com/oknozor)
