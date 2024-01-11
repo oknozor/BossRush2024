@@ -34,9 +34,9 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 func set_particle_color():
 	match card_type:
 		CardType.Attack:
-			particles.modulate = Color.from_string("#c52956", Color.RED)
+			particles.modulate = Color.from_string("#ac3232", Color.RED)
 		CardType.Defense:
-			particles.modulate = Color.from_string("#4728f6", Color.BLUE)
+			particles.modulate = Color.from_string("#5b6ee1", Color.BLUE)
 		CardType.Ability:
-			particles.modulate = Color.from_string("#198641", Color.SEA_GREEN)
+			particles.modulate = Color.from_string("#37946e", Color.SEA_GREEN)
 

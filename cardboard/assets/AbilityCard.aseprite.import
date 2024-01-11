@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://d0r8emvi5xtg5"
+path="res://.godot/imported/AbilityCard.aseprite-746af90addf0d79c4d6956d4a014e2db.res"
+
+[deps]
+
+source_file="res://cardboard/assets/AbilityCard.aseprite"
+dest_files=["res://.godot/imported/AbilityCard.aseprite-746af90addf0d79c4d6956d4a014e2db.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

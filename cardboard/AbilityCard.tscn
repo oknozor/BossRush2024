@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs3v6otvvd02r"]
+
+[ext_resource type="PackedScene" uid="uid://d05peg7i70opo" path="res://cardboard/card.tscn" id="1_ksehj"]
+[ext_resource type="Texture2D" uid="uid://cskis7qj0ofld" path="res://cardboard/assets/AbilityCard.png" id="2_13efc"]
+
+[node name="Card" instance=ExtResource("1_ksehj")]
+texture = ExtResource("2_13efc")
+card_type = 2

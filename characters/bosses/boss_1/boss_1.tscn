@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpdck03tsjdy3"]
+[gd_scene load_steps=17 format=3 uid="uid://dpdck03tsjdy3"]
 
 [ext_resource type="PackedScene" uid="uid://chu2hkovkyvp3" path="res://characters/common/character.tscn" id="1_y2hxc"]
 [ext_resource type="Texture2D" uid="uid://oy02updgruj6" path="res://characters/bosses/boss_1/assets/boss-ph.png" id="2_4xq6w"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://characters/bosses/boss_1/states/JumpAttack.gd" id="4_eew2c"]
 [ext_resource type="Script" path="res://characters/bosses/boss_1/states/SpikeAttack.gd" id="5_espmp"]
 [ext_resource type="Script" path="res://characters/bosses/boss_1/states/ChooseNextAttack.gd" id="5_p140u"]
+[ext_resource type="Script" path="res://characters/bosses/boss_1/states/ChargeAttack.gd" id="6_8hhkj"]
 [ext_resource type="Script" path="res://characters/bosses/boss_1/states/GrowSpike.gd" id="6_tc2ul"]
 [ext_resource type="Script" path="res://characters/bosses/boss_1/states/Damaged.gd" id="8_afw6j"]
 [ext_resource type="Script" path="res://characters/bosses/boss_1/DamageArea.gd" id="9_a43af"]
@@ -80,16 +81,19 @@ script = ExtResource("5_espmp")
 
 [node name="Timer" type="Timer" parent="StateMachine/SpikeAttack" index="0"]
 
-[node name="ChooseNextAttack" type="Node" parent="StateMachine" index="3"]
+[node name="ChargeAttack" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("6_8hhkj")
+
+[node name="ChooseNextAttack" type="Node" parent="StateMachine" index="4"]
 script = ExtResource("5_p140u")
 
 [node name="Timer" type="Timer" parent="StateMachine/ChooseNextAttack" index="0"]
 one_shot = true
 
-[node name="Damaged" type="Node" parent="StateMachine" index="4"]
+[node name="Damaged" type="Node" parent="StateMachine" index="5"]
 script = ExtResource("8_afw6j")
 
-[node name="Die" type="Node" parent="StateMachine" index="5"]
+[node name="Die" type="Node" parent="StateMachine" index="6"]
 script = ExtResource("9_djpim")
 
 [node name="MuzzleL" type="Marker2D" parent="." index="4"]

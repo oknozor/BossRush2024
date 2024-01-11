@@ -49,7 +49,7 @@ position = Vector2(0, -8)
 metadata/_edit_lock_ = true
 
 [node name="ExchangeButton" type="Sprite2D" parent="."]
-position = Vector2(824, 416)
+position = Vector2(456, 280)
 scale = Vector2(2.75, 2.75)
 texture = ExtResource("3_bsgme")
 script = ExtResource("4_jbw3j")
@@ -88,7 +88,7 @@ environment = SubResource("Environment_x6kc2")
 [node name="AttackPair" type="Node" parent="."]
 
 [node name="CardPair" parent="AttackPair" instance=ExtResource("6_ql0ta")]
-position = Vector2(-320, 0)
+position = Vector2(144, 0)
 
 [node name="DefensePair" type="Node" parent="."]
 
@@ -99,7 +99,7 @@ pair_type = 1
 [node name="AbilityPair" type="Node" parent="."]
 
 [node name="CardPair" parent="AbilityPair" instance=ExtResource("6_ql0ta")]
-position = Vector2(832, 0)
+position = Vector2(344, 0)
 pair_type = 2
 
 [connection signal="input_event" from="ExchangeButton/Area2D" to="ExchangeButton" method="_on_area_2d_input_event"]

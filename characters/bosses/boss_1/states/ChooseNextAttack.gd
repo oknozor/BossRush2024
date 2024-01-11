@@ -2,7 +2,7 @@ extends Boss1State
 
 @onready var timer: Timer = $Timer
 
-var attacks = ["JumpAttack", "SpikeAttack"]
+var attacks = ["JumpAttack", "SpikeAttack", "ChargeAttack"]
 var previous_attack: int
 var previous_attack_count: int
 
@@ -11,7 +11,6 @@ func enter(_msg := {}):
 	var wait_time = randf_range(0.7, 1)
 	timer.start(wait_time)
 
-	
 func _on_timer_timeout():
 	var next_attack_idx = randi_range(0, 1);
 	if next_attack_idx == previous_attack:

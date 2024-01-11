@@ -60,7 +60,8 @@ scale = Vector2(1.00001, 0.999998)
 curve = SubResource("Curve2D_x1r12")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BossHand/AttackExchangePath"]
-position = Vector2(-256, 312)
+position = Vector2(-399.36, 165.311)
+progress = 205.516
 rotates = false
 
 [node name="Card" parent="BossHand/AttackExchangePath/PathFollow2D" instance=ExtResource("1_xuoop")]
@@ -76,7 +77,8 @@ curve = SubResource("Curve2D_x1r12")
 metadata/_edit_lock_ = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="PlayerHand/AttackExchangePath"]
-position = Vector2(-256, 312)
+position = Vector2(-399.36, 165.31)
+progress = 205.516
 rotates = false
 metadata/_edit_lock_ = true
 

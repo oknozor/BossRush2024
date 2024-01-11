@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://7rubd6tv5bsi"
+path="res://.godot/imported/AttackCard.aseprite-b4f0d8b1e6550e904c0e4032e38ca489.res"
+
+[deps]
+
+source_file="res://cardboard/assets/AttackCard.aseprite"
+dest_files=["res://.godot/imported/AttackCard.aseprite-b4f0d8b1e6550e904c0e4032e38ca489.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false
