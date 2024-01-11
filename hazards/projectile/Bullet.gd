@@ -7,6 +7,7 @@ enum CollisionWith { Player, Enemies }
 
 @export var damage_amount = 10
 @export var collision_with: CollisionWith = CollisionWith.Player
+var source: Node2D
 
 func _ready():
 	match collision_with:
@@ -21,8 +22,8 @@ func _physics_process(delta):
 	position += direction * speed * delta
 
 func _on_body_entered(body):
-	body = body as Character
-	if body != null:
-		body.health.take_damage(20, self, self.position)
+	var collided_body = body as Character
+	if collided_body != null:
+		collided_body.health.take_damage(20, owner, self.global_position)
 	
 	queue_free()

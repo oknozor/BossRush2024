@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://83clcu1agf5k"
-path="res://.godot/imported/CharacterAnimations.png-08121543d5126db661579cafdc25092d.ctex"
+uid="uid://c7lvn3ruy4ioi"
+path="res://.godot/imported/bullet-ph.png-0a7f8dc67bd595599b0f3cad38a44573.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/player/CharacterAnimations.png"
-dest_files=["res://.godot/imported/CharacterAnimations.png-08121543d5126db661579cafdc25092d.ctex"]
+source_file="res://characters/bosses/boss_1/assets/bullet-ph.png"
+dest_files=["res://.godot/imported/bullet-ph.png-0a7f8dc67bd595599b0f3cad38a44573.ctex"]
 
 [params]
 

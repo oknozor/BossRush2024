@@ -1,4 +1,4 @@
 extends Boss1State
 
 func enter(_msg := {}):
-	state_machine.transition_to("ChooseNextAttack")
+	boss.process_mode = Node.PROCESS_MODE_DISABLED

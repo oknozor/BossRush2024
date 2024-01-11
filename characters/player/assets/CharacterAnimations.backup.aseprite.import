@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://crh6h1y1j3qu3"
+path="res://.godot/imported/CharacterAnimations.backup.aseprite-93412f6af9bad7df7166742eb4f593e3.res"
+
+[deps]
+
+source_file="res://characters/player/assets/CharacterAnimations.backup.aseprite"
+dest_files=["res://.godot/imported/CharacterAnimations.backup.aseprite-93412f6af9bad7df7166742eb4f593e3.res"]
+
+[params]
+

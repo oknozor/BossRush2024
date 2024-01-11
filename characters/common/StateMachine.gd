@@ -30,7 +30,6 @@ func handle_animation():
 	pass
 		
 func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
-	print(target_state_name)
 	if not has_node(target_state_name):
 		return
 

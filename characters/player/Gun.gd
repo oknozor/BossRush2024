@@ -29,6 +29,10 @@ func _process(delta):
 		shoot(current_direction)
 
 func shoot(direction: Vector2):
+	if player.bullet_count <= 0: 
+		return
+		
+	player.bullet_count -= 1
 	var bullet: Bullet = bullet_.instantiate()
 	bullet.direction = direction
 	bullet.collision_with = Bullet.CollisionWith.Enemies

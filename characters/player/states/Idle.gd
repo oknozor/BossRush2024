@@ -17,6 +17,8 @@ func handle_input(event: InputEvent) -> void:
 		state_machine.transition_to("Crouch")
 	if event.is_action_pressed("dash"):
 		state_machine.transition_to("Dash")
+	if event.is_action_pressed("sword_attack"):
+		state_machine.transition_to("SwordAttack")
 
 func physics_update(delta: float) -> void:
 	if not player.jump_buffer_timer.is_stopped():

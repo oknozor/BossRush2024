@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpdck03tsjdy3"]
+[gd_scene load_steps=16 format=3 uid="uid://dpdck03tsjdy3"]
 
 [ext_resource type="PackedScene" uid="uid://chu2hkovkyvp3" path="res://characters/common/character.tscn" id="1_y2hxc"]
 [ext_resource type="Texture2D" uid="uid://oy02updgruj6" path="res://characters/bosses/boss_1/assets/boss-ph.png" id="2_4xq6w"]
@@ -17,6 +17,43 @@ radius = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ads5"]
 radius = 32.0
 
+[sub_resource type="Animation" id="Animation_nmkgx"]
+resource_name = "Damaged"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.000434416, 0.1, 0.2, 0.3, 0.396622),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.839216, 0.133333, 0.282353, 1), Color(1, 1, 1, 1), Color(0.839216, 0.133333, 0.282353, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oedk3"]
+resource_name = "ChooseNextAttack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.000868833, 0.0760229, 0.3, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbvyb"]
+_data = {
+"ChooseNextAttack": SubResource("Animation_oedk3"),
+"Damaged": SubResource("Animation_nmkgx")
+}
+
 [node name="Boss" instance=ExtResource("1_y2hxc")]
 collision_layer = 2
 collision_mask = 80
@@ -28,11 +65,11 @@ texture = ExtResource("2_4xq6w")
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_o4g5s")
 
-[node name="Health" parent="." index="3"]
-max_health = 200
+[node name="Health" parent="." index="2"]
+max_health = 1000
 invicibility_duration = 0.1
 
-[node name="StateMachine" parent="." index="4"]
+[node name="StateMachine" parent="." index="3"]
 initial_state = NodePath("ChooseNextAttack")
 
 [node name="JumpAttack" type="Node" parent="StateMachine" index="1"]
@@ -55,35 +92,40 @@ script = ExtResource("8_afw6j")
 [node name="Die" type="Node" parent="StateMachine" index="5"]
 script = ExtResource("9_djpim")
 
-[node name="MuzzleL" type="Marker2D" parent="." index="5"]
+[node name="MuzzleL" type="Marker2D" parent="." index="4"]
 position = Vector2(-16, 0)
 
-[node name="MuzzleTL" type="Marker2D" parent="." index="6"]
+[node name="MuzzleTL" type="Marker2D" parent="." index="5"]
 position = Vector2(-16, -16)
 
-[node name="MuzzleT" type="Marker2D" parent="." index="7"]
+[node name="MuzzleT" type="Marker2D" parent="." index="6"]
 position = Vector2(0, -16)
 
-[node name="MuzzleTR" type="Marker2D" parent="." index="8"]
+[node name="MuzzleTR" type="Marker2D" parent="." index="7"]
 position = Vector2(16, -16)
 
-[node name="MuzzleR" type="Marker2D" parent="." index="9"]
+[node name="MuzzleR" type="Marker2D" parent="." index="8"]
 position = Vector2(16, 0)
 
-[node name="DamageArea" type="Area2D" parent="." index="10"]
+[node name="DamageArea" type="Area2D" parent="." index="9"]
 script = ExtResource("9_a43af")
 
 [node name="DamageCollision" type="CollisionShape2D" parent="DamageArea" index="0"]
 shape = SubResource("CircleShape2D_4ads5")
 debug_color = Color(0.917647, 0.227451, 0.435294, 0.419608)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="11"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="10"]
 shape = SubResource("CircleShape2D_o4g5s")
 
-[node name="GrowSpike" type="Node" parent="." index="12"]
+[node name="GrowSpike" type="Node" parent="." index="11"]
 script = ExtResource("6_tc2ul")
 
 [node name="Timer" type="Timer" parent="GrowSpike" index="0"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="12"]
+libraries = {
+"": SubResource("AnimationLibrary_jbvyb")
+}
 
 [connection signal="timeout" from="StateMachine/ChooseNextAttack/Timer" to="StateMachine/ChooseNextAttack" method="_on_timer_timeout"]
 [connection signal="body_entered" from="DamageArea" to="DamageArea" method="_on_body_entered"]

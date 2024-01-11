@@ -7,7 +7,9 @@ var previous_attack: int
 var previous_attack_count: int
 
 func enter(_msg := {}):
-	timer.start(randf_range(1, 1.5))
+	boss.animation.play("ChooseNextAttack")
+	var wait_time = randf_range(0.7, 1)
+	timer.start(wait_time)
 
 	
 func _on_timer_timeout():

@@ -26,7 +26,7 @@ func physics_update(delta: float) -> void:
 func handle_input(event: InputEvent) -> void:
 	if player.input_paused:
 		return
-		
+	
 	if event.is_action_pressed("jump"):
 		if not player.coyote_timer.is_stopped():
 			state_machine.transition_to("Jump")
@@ -35,3 +35,6 @@ func handle_input(event: InputEvent) -> void:
 			
 	if event.is_action_pressed("dash") and player.can_dash():
 		state_machine.transition_to("Dash")
+	
+	if event.is_action_pressed("sword_attack"):
+		state_machine.transition_to("SwordAttack")

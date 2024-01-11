@@ -12,12 +12,12 @@ func handle_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("jump"): 
 		state_machine.transition_to("Jump")
-		
 	if player.get_direction_strenght() == 0.0:
 		state_machine.transition_to("Idle")
-
 	if event.is_action_pressed("dash") and player.can_dash():
 		state_machine.transition_to("Dash")
+	if event.is_action_pressed("sword_attack"):
+		state_machine.transition_to("SwordAttack")
 
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():

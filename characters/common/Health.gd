@@ -25,7 +25,7 @@ func take_damage(amount: int, source: Node2D, normal: Vector2):
 	var state_machine = get_parent().state_machine
 	state_machine.transition_to("Damaged", { source_normal = normal})
 	health -= amount	
-	if health < 0:
+	if health <= 0:
 		state_machine.transition_to("Die")
 
 	

@@ -1,4 +1,4 @@
 extends PlayerState
 
 func enter(msg := {}):
-	player.queue_free()
+	player.process_mode = Node.PROCESS_MODE_DISABLED

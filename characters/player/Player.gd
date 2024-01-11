@@ -5,18 +5,21 @@ const GRAVITY = 1500
 var input_paused = false
 enum HorizontalDirection { LEFT, RIGHT } 
 
+@export var bullet_count: int = 30
+
 @onready var gun: Gun = $Gun
 @onready var animation: AnimationPlayer = $AnimationPlayer 
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var coyote_timer = $Timers/Coyote
-@onready var jump_buffer_timer = $Timers/JumpBuffer
-@onready var dash_timer = $Timers/DashTimer
+@onready var coyote_timer: Timer = $Timers/Coyote
+@onready var jump_buffer_timer: Timer = $Timers/JumpBuffer
+@onready var dash_timer: Timer = $Timers/DashTimer
+@onready var sword_hitbox: Area2D = $SwordHitBox
+@onready var hitbox: Area2D = $Hitbox
 
 var previous_horizontal_direction = HorizontalDirection.RIGHT
 var air_dash = 1
-
+	
 func _process(delta):
-
 	var direction = get_direction()
 	match previous_horizontal_direction: 
 		HorizontalDirection.LEFT:
@@ -58,3 +61,6 @@ func apply_gravity(delta):
 		
 func can_dash():
 	return dash_timer.is_stopped() and air_dash > 0
+
+
+

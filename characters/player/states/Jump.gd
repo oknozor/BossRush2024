@@ -31,3 +31,6 @@ func handle_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("dash") and player.can_dash():
 		state_machine.transition_to("Dash")
+
+	if event.is_action_pressed("sword_attack"):
+		state_machine.transition_to("SwordAttack")
