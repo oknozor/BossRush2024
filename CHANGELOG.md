@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.3.0](https://github.com/oknozor/BossRush2024/compare/v0.2.2..v0.3.0) - 2024-01-11
+#### Features
+- update boss pattern - ([9e63097](https://github.com/oknozor/BossRush2024/commit/9e63097e19c3511d59903dbb693c917e9b56bd9a)) - [@oknozor](https://github.com/oknozor)
+
+- - -
+
 ## [v0.2.2](https://github.com/oknozor/BossRush2024/compare/v0.2.1..v0.2.2) - 2024-01-11
 #### Bug Fixes
 - fullscreen - ([595686e](https://github.com/oknozor/BossRush2024/commit/595686e23b3d4d4b43c5d3c1cd81b3deb540085a)) - [@oknozor](https://github.com/oknozor)
