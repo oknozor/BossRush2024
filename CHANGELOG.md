@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.2.1](https://github.com/oknozor/BossRush2024/compare/v0.2.0..v0.2.1) - 2024-01-11
+#### Bug Fixes
+- try to make it work on steamdeck - ([8e2a359](https://github.com/oknozor/BossRush2024/commit/8e2a3595d570a69dcca5598b4fbb0f58ac6a9fa7)) - [@oknozor](https://github.com/oknozor)
+
+- - -
+
 ## [v0.2.0](https://github.com/oknozor/BossRush2024/compare/v0.1.4..v0.2.0) - 2024-01-11
 #### Features
 - add many many things - ([713ca51](https://github.com/oknozor/BossRush2024/commit/713ca51f2d573f3134897af4491186b5eef60f3b)) - [@oknozor](https://github.com/oknozor)
