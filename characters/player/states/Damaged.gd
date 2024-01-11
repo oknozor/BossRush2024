@@ -18,7 +18,7 @@ func physics_update(delta):
 			state_machine.transition_to("Air")
 			return 
 		
-		if player.is_on_floor() and player.get_direction() != 0:
+		if player.is_on_floor() and player.get_direction_strenght() != 0:
 			state_machine.transition_to("Run")
 		else: 
 			state_machine.transition_to("Idle")

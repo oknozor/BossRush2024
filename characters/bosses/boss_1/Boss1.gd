@@ -1,7 +1,7 @@
 extends Character
 class_name Boss1
 
-const GRAVITY = 1000
+const GRAVITY = 500
 
 @onready var bullet_scene: PackedScene = load("res://hazards/projectile/Bullet.tscn")
 @onready var muzzle_left = $MuzzleL
